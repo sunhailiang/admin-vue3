@@ -2,7 +2,7 @@
 
 vue3 版本通用管理系统脚手架
 
-## 代码规范
+# 代码规范
 
 1. 代码规范先行
 2. 多人协作时，如何保证代码的统一性？
@@ -31,7 +31,11 @@ vue3 版本通用管理系统脚手架
 
 1. npm i vue@3.2.8 vue-router@4.0.11 vuex@4.0.2
 
-## Eslint 配置
+## 本地代码校验
+
+- 本地校验：eslint+prettier 开发期间保存，打包时报问题
+
+### Eslint 配置
 
 - 级别
 
@@ -62,7 +66,7 @@ vue3 版本通用管理系统脚手架
 1. 在.eslintrc.js 中 rutes
 2. 上面这个报错信息最后一列就是 rutes 中的 key，至于 value，根据实际情况去修改（error/warn/off）
 
-## Prettier
+### 本地校验-Prettier
 
 - 基本理解
   - https://www.prettier.cn/
@@ -80,11 +84,11 @@ vue3 版本通用管理系统脚手架
 }
 ```
 
-## 配置 vscode
+### 本地校验-配置 vscode
 
 - 开启保存时格式化代码
 
-## 差异性配置
+### 差异性配置
 
 - vscode 一个 tab 默认 4 个空格，Eslint 默认 2 个空格
   1.  vscode/设置/tab size 改成 2 即可
@@ -245,8 +249,15 @@ module.exports = {
 
 1. 安装 pnpm i husky@7.0.1 --save-dev
 2. 创建 husky 文件夹
-3.
-4. 在 package.json 中写入`prepare`指令：`npm set-script prepare "husky install"`
-5. 执行`npm run prepare` 命令，通过 husky 安装 git hooks
-6. 添加 `commitlint`hook 到 husky 中，并添加指令：在 commit-msg 的 git hooks 中执行 `npx --no-install commitlint --edit "$1"`
+3. 在 package.json 中写入`prepare`指令：`npm set-script prepare "husky install"`
+4. 执行`npm run prepare` 命令，通过 husky 安装 git hooks
+5. 添加 `commitlint`hook 到 husky 中，并添加指令：在 commit-msg 的 git hooks 中执行 `npx --no-install commitlint --edit "$1"`
    - 命令：`npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'`
+6. 执行`git commit` 发现出错了吧，ok，校验规则完成
+
+## 代码提交前校验
+
+- 提交校验：eslint+husky 当本地代码格式并没有按要求配置时，通过 git hooks 的钩子函数配合 eslint+husky 来进行提交时代码校验
+
+- 利用 husky 监听 git hooks 中的 pre-commit 钩子，并在钩子中执行:`npx eslint --ext .js,.vue src`去执行 eslint 检测
+  1. 执行 `npx husky add .husky/pre-commit "npx eslint --ext .js,.vue src"`

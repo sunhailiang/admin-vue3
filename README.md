@@ -150,3 +150,103 @@ vue3 版本通用管理系统脚手架
   ```
 
 - 通过`git cz`命令替代`git commit`
+
+## Git Hooks（自动化校验提交信息是否合规）
+
+- git 的钩子函数
+- 目的：利用 githooks 部分函数，强制 git commit 的提交规范，不合规就聚聚头提交（强制走 git cz 流程）
+- 常用的 Git Hooks 如下
+
+| 函数名                | 执行阶段                                                                                                                                                    | 备注                                                      |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| pre-applypatch        | git am 执行前                                                                                                                                               |                                                           |
+| applypatch-msg        | git am 执行前                                                                                                                                               |                                                           |
+| post-applypatch       | git am 执行后                                                                                                                                               | 不影响 git am 结果                                        |
+| pre-commit            | git commit 执行前                                                                                                                                           | 可以用 git commit --no-verify 绕过                        |
+| commit-msg            | git commit 执行前                                                                                                                                           | 可以用 git commit --no-verify 绕过                        |
+| post-commit           | git commit 执行后                                                                                                                                           | 不影响 git commit 结果                                    |
+| pre-merge-commit      | git merge 执行前                                                                                                                                            | 可以用 git merge --no-verify 绕过                         |
+| prepare-commit-msg    | git commit 执行后编辑器打开之前执行                                                                                                                         |                                                           |
+| pre-rebase            | git rebase 执行前                                                                                                                                           |                                                           |
+| post-checkout         | git checkout 或 git switch 执行后                                                                                                                           | 如果不使用--no-checkout 参数，则在 git clone 后也会被调用 |
+| post-merge            | git commit 执行后                                                                                                                                           | 执行 git pull 也会调用                                    |
+| pre-push              | git push 执行前                                                                                                                                             |                                                           |
+| pre-receive           | git-receive-pack 执行前                                                                                                                                     |                                                           |
+| update                |                                                                                                                                                             |                                                           |
+| post-receive          | git-receive-pack 执行后                                                                                                                                     | 不影响 git-receive-pack 结果                              |
+| post-update           | 当 git-receive-pack 对 git push 做出反应并更新仓库中的引用时调用                                                                                            |                                                           |
+| push-to-checkout      | 当 git-receive-pack 对 git push 做出反应并更新仓库中的引用时/当推送试图更新当前被牵出的分支且 receive.denyCurrentBranch 配置被设置成 updateInstead 时被调用 |                                                           |
+| pre-auto-gc           | git gc --auto 执行前                                                                                                                                        |                                                           |
+| post-rewrite          | 执行 git commit -amend 或 git rebase 时调用                                                                                                                 |                                                           |
+| sendemail-validate    | git send-email 执行前                                                                                                                                       |                                                           |
+| fsmonitor-watchman    | 配置 core.fsmonitor 被设置为.git/hooks/fsmonitor-watchman 或者.git/hooks/fsmonitor-watchmanv2 时被调用                                                      |                                                           |
+| p4-pre-submit         | git-p4 submit 执行前被调用                                                                                                                                  | 可以用 git-p4 submit --no-verify 绕过                     |
+| p4-prepare-changelist | git p4 submit 执行后 编辑器启动前                                                                                                                           | 可以用 git-p4 submit --no-verify 绕过                     |
+| p4-changelist         | git p4 submit 执行并编辑完 changelist message 后执行                                                                                                        | 可以用 git-p4 submit --no-verify 绕过                     |
+| p4-post-changelist    | git-p4 submit 执行后被调用                                                                                                                                  |                                                           |
+| post-index-change     | 索引被写入到 read-cache.c do_write_locked_index 后被调 用                                                                                                   |                                                           |
+
+### 强制规范 git commit 的钩子
+
+1.  pre-commit
+    1.  git commit 执行前，不接收任何参数，在获取提交日志消息并进行提交之前被调用
+    2.  脚本 git commit 以非零状态退出会导致命令在创建提交之前终止。
+    3.  可以用 git commit --no-verify 绕过
+2.  commit-msg
+    1.  git commit 执行前
+    2.  用于将消息规范化为某种格式
+    3.  检查消息文件后拒绝提交
+    4.  可以用 git commit --no-verify 绕过
+
+### 使用 husky+commitlint 检查提交是否符合规范
+
+1. commitlint:用于检查提交信息
+2. husky:git hooks 工具
+3. npm 一定要在 7.x 以上的版本
+
+- 安装 commitlint
+
+1. 安装依赖：pnpm i --save-dev @commitlint/config-conventional@12.1.4 @commitlint/cli@12.1.4
+2. 创建 commitlint.config.js
+3. 在 commitlint.config.js 中新增校验规则
+
+```js
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    // type枚举，即你在cz-config中配置的所有类型
+    'type-enum': [
+      // 错误级别：2表示error
+      2,
+      // 验证时机-一直验证
+      'always',
+      [
+        'feat', // 新功能
+        'fix', // 修复
+        'docs', // 文档变更
+        'style', // 代码格式化（不影响代码执行的变动
+        'refector', // 功能重构
+        'po', // 性能优化
+        'test', // 测试
+        'utils', // 工具/插件变动
+        'revert', // 回退
+        'build' // 构建
+      ]
+    ],
+    // subject不区分大小写
+    'subject-case': [0]
+  }
+}
+```
+
+4. commitlint-config 文件要在 UTF8 规则保存，否则会报错
+
+### husky
+
+1. 安装 pnpm i husky@7.0.1 --save-dev
+2. 创建 husky 文件夹
+3.
+4. 在 package.json 中写入`prepare`指令：`npm set-script prepare "husky install"`
+5. 执行`npm run prepare` 命令，通过 husky 安装 git hooks
+6. 添加 `commitlint`hook 到 husky 中，并添加指令：在 commit-msg 的 git hooks 中执行 `npx --no-install commitlint --edit "$1"`
+   - 命令：`npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'`

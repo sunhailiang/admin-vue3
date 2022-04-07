@@ -261,3 +261,32 @@ module.exports = {
 
 - 利用 husky 监听 git hooks 中的 pre-commit 钩子，并在钩子中执行:`npx eslint --ext .js,.vue src`去执行 eslint 检测
   1. 执行 `npx husky add .husky/pre-commit "npx eslint --ext .js,.vue src"`
+
+## 自动修复格式
+
+- lint-staged
+  1.  代码检查时，只检查本次修改更新的代码，发现错误，自动更正，并推送
+  2.  无需安装，cli 已经安装过
+- 修改配置
+  1. package.json 把原有 lint-staged 改成如下
+
+```js
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+```
+
+- 执行结果
+
+  1. 代码提交时，如果没有错误，提交成功
+  2. 如果代码有错误，先尝试定位修复
+  3. 如果无法自动修复，那就报错
+
+- 在 husky 中修改指令.husky/pre-commit
+
+```js
+;`npx lint-staged`
+```

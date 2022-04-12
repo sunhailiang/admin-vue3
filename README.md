@@ -290,3 +290,31 @@ module.exports = {
 ```js
 ;`npx lint-staged`
 ```
+
+## 关于 vue3 template 的多根性
+
+- 因为 vetur 依旧沿用的 vue2 的校验规则，所以会爆红，但不影响使用
+- 可以关闭 vutur 检测
+
+## 其他配置
+
+1. 代码压缩
+2. 资源/第三方库按需加载
+3. reset/全局样式注入
+4. 打包报表--report
+5. assets 拆分
+   1. 类型/路由/文件
+   2. lib 存放第三方
+6. icon 封装/iconfont 库/内部 icon，外部 icon 和本地的图标(本地需要：svg-sprite-loader@6.0.9)
+7. 封装公用类
+8. 封装全局组件-自动注册
+9. axios 封装/api 封装（模块坏）/环境变量/代理 base/代理 url/打包输出位置
+10. vuex 模块化/持久化
+11. 公用-sessionStorage/localStorage
+
+# vue3
+
+1. 去掉了 this
+2. 声明变量用 ref 或者 reactive，但是建议 ref 性能更快
+3. 使用 vuex 时，采用 useStore 的 API
+4. 原 ref 操作 dom 采用 const refKey=ref(null), 注意:你的变量名称（refKey）应该与 ref 名称一致。

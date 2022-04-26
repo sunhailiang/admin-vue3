@@ -1,5 +1,5 @@
 // 存储
-const setItem = (key, value) => {
+const sessionSetItem = (key, value) => {
   if (typeof value === 'object') {
     value = JSON.stringify(value)
   }
@@ -7,7 +7,7 @@ const setItem = (key, value) => {
 }
 
 // 获取
-const getItem = (key) => {
+const sessionGetItem = (key) => {
   const data = sessionStorage.getItem(key)
   try {
     return JSON.parse(data)
@@ -17,12 +17,17 @@ const getItem = (key) => {
 }
 
 // 清除某个
-const removeItem = (key) => {
+const sessionRemoveItem = (key) => {
   window.sessionStorage(key)
 }
 // 清除所有
-const clear = () => {
+const sessionClear = () => {
   window.sessionStorage.clear()
 }
 
-export default { setItem, getItem, removeItem, clear }
+export default {
+  sessionSetItem,
+  sessionGetItem,
+  sessionRemoveItem,
+  sessionClear
+}

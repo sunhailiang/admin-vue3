@@ -1,12 +1,12 @@
 // 存储
-const setItem = (key, value) => {
+const localSetItem = (key, value) => {
   if (typeof value === 'object') {
     value = JSON.stringify(value)
   }
   window.localStorage.setItem(key, value)
 }
 // 获取
-const getItem = (key) => {
+const localGetItem = (key) => {
   const data = window.localStorage.getItem(key)
   try {
     return JSON.parse(data)
@@ -16,14 +16,19 @@ const getItem = (key) => {
 }
 
 // 删除指定数据
-const removeItem = (key) => {
+const localRemoveItem = (key) => {
   window.localStorage.removeItem(key)
 }
 
 // 清空所有数据
 
-const clear = () => {
+const localClear = () => {
   window.localStorage.clear()
 }
 
-export default { setItem, getItem, removeItem, clear }
+export default {
+  localSetItem,
+  localGetItem,
+  localRemoveItem,
+  localClear
+}

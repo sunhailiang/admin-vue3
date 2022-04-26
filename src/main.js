@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import regisGlobaltComponents from './components'
 import registeGlobalUtils from './utils'
-import './assets/styles/common/index.scss'
+import './assets/styles/index.scss'
 const app = createApp(App)
 app.use(store).use(router).mount('#app')
 

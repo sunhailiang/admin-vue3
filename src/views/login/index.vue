@@ -37,6 +37,7 @@ import { ref } from 'vue'
 import { validatePwd } from './rules.js'
 import { useStore } from 'vuex'
 import api from '@/api'
+// import api from '@/api'
 // 登录
 const loginForm = ref({
   username: 'admin',
@@ -61,7 +62,6 @@ const loginValidate = ref({
 })
 const store = useStore()
 console.log('啥玩意儿？ ', useStore().state)
-// store.commit('user/setToken', 'xx134cv1231vc2312vchjghjg1231312')
 const pwdState = ref(false)
 const changePwdState = () => {
   console.log('pwdState', pwdState)
@@ -80,9 +80,7 @@ const onSubmit = () => {
   loginFormRef.value.validate((validateRes) => {
     if (validateRes) {
       // 登录
-      api.login(loginForm).then((res) => {
-        console.log('res', res)
-      })
+      api.login(loginForm)
     }
   })
 }

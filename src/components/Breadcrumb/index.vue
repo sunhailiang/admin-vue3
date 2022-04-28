@@ -6,10 +6,10 @@
         :key="item.path"
       >
         <span v-if="index === breadcrumbData.length - 1" class="no-redirect">
-          {{ item.meta.title }}</span
+          {{ $t('msg.route.' + item.meta.title + '') }}</span
         >
         <span v-else @click="link(item)" class="redirect">
-          {{ item.meta.title }}
+          {{ $t('msg.route.' + item.meta.title + '') }}
         </span>
       </el-breadcrumb-item>
     </transition-group>

@@ -10,10 +10,10 @@ export default (layout) => {
     children: [
       {
         path: '/article/ranking',
-        name: 'articleRranking',
+        name: 'articleRanking',
         component: () => import('@/views/article/article-ranking'),
         meta: {
-          title: 'articleRranking',
+          title: 'article',
           icon: 'wenzhangfenlei'
         }
       },

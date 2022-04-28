@@ -333,6 +333,8 @@ v-leave=>v-leave-from
 13. 主动退出/被动退出方案（token 失效/单点登录）
 14. 动态路由表设计（路由表跟实际数据渲染）
 15. 路由权限（router.getRoutes()获取完整路由表 ）
+16. 国际化
+17. 全局混入：request/i18n/
 
 ## vue3
 
@@ -340,6 +342,8 @@ v-leave=>v-leave-from
 2. 声明变量用 ref 或者 reactive，但是建议 ref 性能更快
 3. 使用 vuex 时，采用 useStore 的 API
 4. 原 ref 操作 dom 采用 const refKey=ref(null), 注意:你的变量名称（refKey）应该与 ref 名称一致。
+5. defineProps 等同原 props
+6. defineEmit 等同原 emit
 
 ## 登录鉴权
 
@@ -347,3 +351,9 @@ v-leave=>v-leave-from
 2. token 失效之前，不能进入 login
 
 ## 鉴权方式-路由守卫
+
+## 更换主题方案-element-plus
+
+- pnpm install rgb-hex -rgb 转 16 进制
+- pnpm install css-color-function - css 提取颜色的转换器
+-

@@ -3,7 +3,7 @@
     <sideBar
       :class="$store.getters.sidebarState ? 'sidebarState' : ''"
       class="sidebar-container"
-      :style="{ backgroundColor: layoutCssObj.menuBg }"
+      :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
     ></sideBar>
     <div
       class="main-container"

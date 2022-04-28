@@ -1,5 +1,10 @@
 <template>
   <div class="login el-icon-circle-cross">
+    <div class="title">
+      <span>{{ $t('msg.login.title') }}</span>
+      <!-- 国际化 -->
+      <LangSelect class="lang-container" />
+    </div>
     <el-form :model="loginForm" :rules="loginValidate" ref="loginFormRef">
       <el-form-item prop="username">
         <span class="svg-container">
@@ -25,9 +30,9 @@
         </span>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit" style="width: 100%"
-          >登录</el-button
-        >
+        <el-button type="primary" @click="onSubmit" style="width: 100%">{{
+          $t('msg.login.loginBtn')
+        }}</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -37,7 +42,7 @@ import { ref } from 'vue'
 import { validatePwd } from './rules.js'
 import { useStore } from 'vuex'
 import api from '@/api'
-// import api from '@/api'
+import { $t } from '@/utils/i18n'
 // 登录
 const loginForm = ref({
   username: 'admin',
@@ -49,22 +54,20 @@ const loginValidate = ref({
     {
       required: true,
       trigger: 'blur',
-      message: '用户名不能为空'
+      message: $t('msg.login.usernameRule')
     }
   ],
   password: [
     {
       required: true,
       trigger: 'blur',
-      validator: validatePwd()
+      validator: validatePwd($t)
     }
   ]
 })
 const store = useStore()
-console.log('啥玩意儿？ ', useStore().state)
 const pwdState = ref(false)
 const changePwdState = () => {
-  console.log('pwdState', pwdState)
   if (pwdState.value) {
     pwdState.value = false
     console.log('模拟token', store.state.user.token)
@@ -90,6 +93,23 @@ const onSubmit = () => {
   min-height: 100vh;
   background-color: #2d3a4b;
   padding: 30vh;
+  .title {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    position: relative;
+    width: 360px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    .lang-container {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      right: 0;
+      top: 12px;
+    }
+  }
   .el-form {
     width: 360px;
     position: relative;

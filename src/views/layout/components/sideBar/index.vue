@@ -2,15 +2,12 @@
   <div class="layout-sidebar">
     <div class="logo-container">
       <img class="logo" :src="require('@/assets/imgs/app/logo.png')" alt="" />
-      <!-- <div :class="['logo-title']" v-if="!$store.getters.sidebarState">
-          通用管理系统
-        </div> -->
     </div>
     <el-menu
+      :background-color="$store.getters.cssVar.menuBg"
       :collapse="$store.getters.sidebarState"
       :default-active="activeMenu"
       active-text-color="#ffd04b"
-      background-color="rgb(48, 65, 86)"
       class="el-menu-vertical-demo"
       text-color="#fff"
       :unique-opened="true"

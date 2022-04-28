@@ -5,7 +5,7 @@
   <Icon v-else :icon="icon" />
   <!-- 文本 -->
   <span :style="!$store.getters.sidebarState ? 'margin-left:6px' : ''">{{
-    title
+    $t('msg.route.' + title + '')
   }}</span>
 </template>
 <script setup>

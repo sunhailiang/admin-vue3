@@ -1,4 +1,4 @@
-import { TIME_STAMP, TOKEN_TIMEOUT_VALUE } from './constant'
+import { TIME_STAMP, TOKEN_TIMEOUT_VALUE } from './const/constant'
 import utils from './localStorage.js'
 
 // 获取时间戳

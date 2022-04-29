@@ -2,6 +2,7 @@ import { createI18n } from 'vue-i18n'
 import zh from './language/zh'
 import en from './language/en'
 import store from '@/store'
+import { watch } from 'vue'
 
 const messages = {
   en: {
@@ -24,4 +25,14 @@ const i18n = createI18n({
 })
 const $t = i18n.global.t
 const lang = i18n.global.locale.value === 'en-US' ? 'en' : 'zh'
-export { i18n, $t, lang }
+
+// 监听语言变换
+const watchSwitchLanguage = (...cbs) => {
+  watch(
+    () => store.getters.language,
+    () => {
+      cbs.forEach((cb) => cb(store.getters.language))
+    }
+  )
+}
+export { i18n, $t, lang, watchSwitchLanguage }

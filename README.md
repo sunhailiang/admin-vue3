@@ -334,7 +334,9 @@ v-leave=>v-leave-from
 14. 动态路由表设计（路由表跟实际数据渲染）
 15. 路由权限（router.getRoutes()获取完整路由表 ）
 16. 国际化
-17. 全局混入：request/i18n/
+17. 全局混入：request/i18n （injext/provider）
+18. 全屏方案
+19. 全局模糊检索 fuse.js
 
 ## vue3
 
@@ -356,4 +358,11 @@ v-leave=>v-leave-from
 
 - pnpm install rgb-hex -rgb 转 16 进制
 - pnpm install css-color-function - css 提取颜色的转换器
--
+
+## 全屏方案
+
+- pnpm install screenfull@5.1.0
+
+## 全局模糊检索
+
+- pnpm install fuse.js@6.4.6

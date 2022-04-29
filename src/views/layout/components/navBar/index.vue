@@ -3,6 +3,10 @@
     <hamburg />
     <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <!-- 全局搜索 -->
+      <HeaderSearch class="header-search" />
+      <!-- 全屏 -->
+      <ScreenFull class="screen-full-container" />
       <!-- 换肤 -->
       <ThemeSelect class="theme-container" />
       <!-- 国际化 -->
@@ -85,16 +89,21 @@ const logout = () => {
         }
       }
     }
+    .screen-full-container,
     .lang-container,
-    .theme-container {
+    .theme-container,
+    .header-search {
       font-size: 26px;
       position: relative;
-      right: 18px;
       top: 14px;
+      margin-right: 16px;
     }
     .theme-container {
-      right: 34px;
       display: inline-block;
+    }
+    .screen-full-container,
+    .header-search {
+      top: 10px;
     }
 
     ::v-deep .avatar-container {

@@ -24,12 +24,14 @@ specifiers:
   eslint-plugin-promise: ^4.2.1
   eslint-plugin-standard: ^4.0.0
   eslint-plugin-vue: ^7.0.0
+  fuse.js: 6.4.6
   husky: 7.0.1
   lint-staged: ^9.5.0
   lodash-webpack-plugin: ^0.11.6
   node-sass: ^4.12.0
   rgb-hex: ^4.0.0
   sass-loader: ^8.0.2
+  screenfull: 5.1.0
   svg-sprite-loader: 6.0.9
   unplugin-auto-import: ^0.6.9
   unplugin-vue-components: ^0.18.5
@@ -46,8 +48,10 @@ dependencies:
   core-js: registry.npmmirror.com/core-js/3.21.1
   css-color-function: 1.3.3
   element-plus: 2.1.8_vue@3.2.8
+  fuse.js: 6.4.6
   lodash-webpack-plugin: 0.11.6
   rgb-hex: 4.0.0
+  screenfull: 5.1.0
   svg-sprite-loader: 6.0.9
   vue: 3.2.8
   vue-i18n: 9.2.0-beta.35_vue@3.2.8
@@ -1425,6 +1429,11 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
+  /fuse.js/6.4.6:
+    resolution: {integrity: sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==}
+    engines: {node: '>=10'}
+    dev: false
+
   /get-caller-file/2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -2644,6 +2653,11 @@ packages:
       '@types/json-schema': 7.0.11
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+    dev: false
+
+  /screenfull/5.1.0:
+    resolution: {integrity: sha512-dYaNuOdzr+kc6J6CFcBrzkLCfyGcMg+gWkJ8us93IQ7y1cevhQAugFsaCdMHb6lw8KV3xPzSxzH7zM1dQap9mA==}
+    engines: {node: '>=0.10.0'}
     dev: false
 
   /semver/5.7.1:

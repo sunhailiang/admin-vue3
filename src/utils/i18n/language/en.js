@@ -21,7 +21,7 @@ export default {
   route: {
     profile: 'Profile',
     user: 'user',
-    excelImport: 'ExcelImport',
+    // excelImport: 'ExcelImport',
     userManage: 'EmployeeManage',
     userInfo: 'UserInfo',
     roleList: 'RoleList',

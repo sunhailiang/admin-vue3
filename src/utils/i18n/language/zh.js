@@ -21,7 +21,7 @@ export default {
   route: {
     profile: '个人中心',
     user: '用户',
-    excelImport: 'Excel导入',
+    // excelImport: 'Excel导入',
     userManage: '员工管理',
     userInfo: '员工信息',
     roleList: '角色列表',

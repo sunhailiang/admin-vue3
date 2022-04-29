@@ -2,7 +2,16 @@ import Icon from './Icon'
 import Breadcrumb from './Breadcrumb'
 import LangSelect from './LangSelect'
 import ThemeSelect from './ThemeSelect'
-const components = [Icon, Breadcrumb, LangSelect, ThemeSelect]
+import ScreenFull from './ScreenFull'
+import HeaderSearch from './HeaderSearch'
+const components = [
+  Icon,
+  Breadcrumb,
+  LangSelect,
+  ThemeSelect,
+  ScreenFull,
+  HeaderSearch
+]
 
 const registComponents = (app) => {
   // 注册全局组件

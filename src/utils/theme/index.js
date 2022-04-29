@@ -9,7 +9,6 @@ export const generateColor = (primary) => {
   const colors = {
     primary
   }
-  console.log('啥情况？', primary)
   Object.keys(mixColor).forEach((key) => {
     const val = mixColor[key].replace(/primary/g, primary)
     colors[key] = '#' + rgbHex(color.convert(val))

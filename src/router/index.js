@@ -11,7 +11,7 @@ const publicRoutes = [
   // 登录
   {
     path: '/login',
-    component: () => import('@/views/login/')
+    component: () => import(/* webpackChunkName: "login" */ '@/views/login/')
   },
   // 主页
   {
@@ -22,7 +22,8 @@ const publicRoutes = [
       // 个人中心
       {
         path: '/profile',
-        component: () => import('@/views/profile/'),
+        component: () =>
+          import(/* webpackChunkName: "profile" */ '@/views/profile/'),
         meta: {
           title: 'profile',
           icon: 'user'
@@ -34,12 +35,14 @@ const publicRoutes = [
   // 404
   {
     path: '/404',
-    component: () => import('@/views/error-page/404.vue')
+    component: () =>
+      import(/* webpackChunkName: "404" */ '@/views/error-page/404.vue')
   },
   // 401
   {
     path: '/401',
-    component: () => import('@/views/error-page/401.vue')
+    component: () =>
+      import(/* webpackChunkName: "401" */ '@/views/error-page/401.vue')
   }
 ]
 

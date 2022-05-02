@@ -21,7 +21,6 @@ import { ref } from 'vue'
 // 弹窗
 const selctColorState = ref(false)
 const selectTheme = (command) => {
-  console.log('有问题', command)
   selctColorState.value = true
 }
 </script>

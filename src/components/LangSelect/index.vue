@@ -36,7 +36,6 @@ defineProps({
 const store = useStore()
 // 获取语言变量
 const language = computed(() => store.getters.language)
-
 // 切换语言环境
 const i18n = useI18n()
 const selectLang = (lang) => {

@@ -10,7 +10,10 @@ export default (layout) => {
     children: [
       {
         path: '/user/manage',
-        component: () => import('@/views/user/user-manage/'),
+        component: () =>
+          import(
+            /* webpackChunkName: "user-manage" */ '@/views/user/user-manage/'
+          ),
         name: 'userManage',
         meta: {
           title: 'userManage',
@@ -19,7 +22,10 @@ export default (layout) => {
       },
       {
         path: '/user/permission',
-        component: () => import('@/views/user/permission-list/'),
+        component: () =>
+          import(
+            /* webpackChunkName: "user-permission-list" */ '@/views/user/permission-list/'
+          ),
         name: 'permissionList',
         meta: {
           title: 'permissionList',
@@ -28,7 +34,8 @@ export default (layout) => {
       },
       {
         path: '/user/role',
-        component: () => import('@/views/user/role-list/'),
+        component: () =>
+          import(/* webpackChunkName: "user-list" */ '@/views/user/role-list/'),
         name: 'roleList',
         meta: {
           title: 'roleList',
@@ -37,7 +44,8 @@ export default (layout) => {
       },
       {
         path: '/user/info/:id',
-        component: () => import('@/views/user/user-info/'),
+        component: () =>
+          import(/* webpackChunkName: "user-info" */ '@/views/user/user-info/'),
         name: 'userInfo',
         meta: {
           title: 'userInfo'
@@ -45,7 +53,8 @@ export default (layout) => {
       },
       {
         path: '/user/import',
-        component: () => import('@/views/user/import/'),
+        component: () =>
+          import(/* webpackChunkName: "user-import" */ '@/views/user/import/'),
         name: 'userImport',
         meta: {
           title: 'exclImport'

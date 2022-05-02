@@ -337,6 +337,7 @@ v-leave=>v-leave-from
 17. 全局混入：request/i18n （injext/provider）
 18. 全屏方案
 19. 全局模糊检索 fuse.js
+20. 多标签页（tagsView）/右键菜单
 
 ## vue3
 

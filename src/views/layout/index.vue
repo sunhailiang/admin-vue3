@@ -14,10 +14,9 @@
         :class="$store.getters.sidebarState ? 'fixedHeadState' : ''"
       >
         <navBar />
+        <TagsView />
       </div>
-      <appMain>
-        <router-view />
-      </appMain>
+      <appMain> </appMain>
     </div>
   </div>
 </template>
@@ -25,6 +24,7 @@
 import navBar from './components/navBar'
 import appMain from './components/main'
 import sideBar from './components/sideBar'
+import TagsView from '@/components/TagsView'
 import layoutCssObj from '@/assets/styles/variables.scss'
 console.log('scss对象', layoutCssObj)
 </script>

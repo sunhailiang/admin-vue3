@@ -35,4 +35,7 @@ const watchSwitchLanguage = (...cbs) => {
     }
   )
 }
-export { i18n, $t, lang, watchSwitchLanguage }
+const generateTitle = (title) => {
+  return $t('msg.route.' + title)
+}
+export { i18n, $t, lang, watchSwitchLanguage, generateTitle }

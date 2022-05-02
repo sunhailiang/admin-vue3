@@ -11,7 +11,10 @@ export default (layout) => {
       {
         path: '/article/ranking',
         name: 'articleRanking',
-        component: () => import('@/views/article/article-ranking'),
+        component: () =>
+          import(
+            /* webpackChunkName: "article-ranking" */ '@/views/article/article-ranking'
+          ),
         meta: {
           title: 'article',
           icon: 'wenzhangfenlei'
@@ -20,7 +23,10 @@ export default (layout) => {
       {
         path: '/article/:id',
         name: 'articleDetail',
-        component: () => import('@/views/article/article-detail'),
+        component: () =>
+          import(
+            /* webpackChunkName: "article-detail" */ '@/views/article/article-detail'
+          ),
         meta: {
           title: 'articleDetail',
           icon: 'xiangqing'
@@ -29,7 +35,10 @@ export default (layout) => {
       {
         path: '/article/create',
         name: 'articleCreate',
-        component: () => import('@/views/article/article-create'),
+        component: () =>
+          import(
+            /* webpackChunkName: "article-create" */ '@/views/article/article-create'
+          ),
         meta: {
           title: 'articleCreate',
           icon: 'xinjian'
@@ -38,7 +47,10 @@ export default (layout) => {
       {
         path: '/article/editor/:id',
         name: 'articleEditor',
-        component: () => import('@/views/article/article-create'),
+        component: () =>
+          import(
+            /* webpackChunkName: "article-editor" */ '@/views/article/article-create'
+          ),
         meta: {
           title: 'articleEditor'
         }

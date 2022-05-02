@@ -1,5 +1,9 @@
 <template>
-  <div class="header-search" :class="{ show: isShow }" @click.stop="showClick">
+  <div
+    class="mine-header-search"
+    :class="{ show: isShow }"
+    @click.stop="showClick"
+  >
     <Icon :icon="'search'" class="search-icon" />
     <el-select
       ref="headerSearchSelect"
@@ -106,7 +110,7 @@ watchSwitchLanguage(() => {
 })
 </script>
 <style lang="scss" scoped>
-.header-search {
+.mine-header-search {
   display: inline-block;
   .search-icon {
     cursor: pointer;
@@ -122,7 +126,6 @@ watchSwitchLanguage(() => {
     border-radius: 0;
     display: inline-block;
     vertical-align: middle;
-
     ::v-deep .el-input__inner {
       border-radius: 0;
       border: 0;
@@ -131,6 +134,9 @@ watchSwitchLanguage(() => {
       box-shadow: none !important;
       border-bottom: 1px solid #d9d9d9;
       vertical-align: middle;
+      &:focus {
+        box-shadow: none !important;
+      }
     }
   }
   &.show {

@@ -4,7 +4,7 @@
     v-if="isExtermal"
     :style="styleExternalIcon"
     class="svg-icon external-icon"
-    @click.stop="tabIcon"
+    @click.prevent.stop="tabIcon"
   >
     icon
   </div>

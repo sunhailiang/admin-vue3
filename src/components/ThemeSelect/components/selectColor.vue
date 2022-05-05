@@ -36,6 +36,7 @@ const emits = defineEmits(['update:modelValue'])
 const store = useStore()
 // 初始话颜色
 const myColor = ref(store.getters.mainColor)
+console.log('默认颜色', myColor.value)
 const confirm = async () => {
   store.commit('theme/setMaincolor', myColor)
   const newStyle = await generateNewStyle(myColor.value)

@@ -7,6 +7,9 @@
     <el-button type="warning">Warning</el-button>
     <el-button type="danger">Danger</el-button>
     <el-button>中文</el-button>
+    <el-tooltip :content="'提示？'">
+      <el-button>top-start</el-button></el-tooltip
+    >
   </div>
 </template>
 

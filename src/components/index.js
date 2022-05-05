@@ -4,13 +4,15 @@ import LangSelect from './LangSelect'
 import ThemeSelect from './ThemeSelect'
 import ScreenFull from './ScreenFull'
 import HeaderSearch from './HeaderSearch'
+import Guide from './Guide'
 const components = [
   Icon,
   Breadcrumb,
   LangSelect,
   ThemeSelect,
   ScreenFull,
-  HeaderSearch
+  HeaderSearch,
+  Guide
 ]
 
 const registComponents = (app) => {

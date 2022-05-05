@@ -3,6 +3,8 @@
     <hamburg />
     <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <!-- 应用导航 -->
+      <Guide class="header-guide" />
       <!-- 全局搜索 -->
       <HeaderSearch class="header-search" />
       <!-- 全屏 -->
@@ -89,6 +91,7 @@ const logout = () => {
         }
       }
     }
+    .header-guide,
     .screen-full-container,
     .lang-container,
     .theme-container,
@@ -98,7 +101,12 @@ const logout = () => {
       top: 14px;
       margin-right: 16px;
     }
-    .theme-container {
+    .header-guide {
+      font-size: 22px;
+      top: 8px;
+    }
+    .theme-container,
+    .header-guide {
       display: inline-block;
     }
     .screen-full-container,

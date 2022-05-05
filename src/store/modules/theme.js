@@ -13,8 +13,8 @@ export default {
       state.mainColor = color
       // 菜单色调
       state.variables.menuBg = color
-      // 缓存-其实可以不用，已经用了vuex持久化工具
-      storage.localSetItem(MAIN_COLOR, color)
+      // 缓存-其实可以不用,我们用了
+      storage.localSetItem(color)
     }
   },
   actions: {}

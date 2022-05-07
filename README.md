@@ -339,7 +339,8 @@ v-leave=>v-leave-from
 19. 全局模糊检索 fuse.js
 20. 多标签页（tagsView）/右键菜单 contextMenu
 21. 页面应用导航 Guide/driver.js
-22. 分辨率是配
+22. lodash 按需加载
+23. 分辨率适配
 
 ```js
 npm i lib-flexible-computer -S //根节点会根据页面视口变化而变化font-size大小

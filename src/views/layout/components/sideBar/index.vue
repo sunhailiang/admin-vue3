@@ -36,6 +36,10 @@ const activeMenu = computed(() => {
 })
 </script>
 <style lang="scss" scoped>
+.el-menu {
+  position: relative;
+  left: -5px !important;
+}
 .logo {
   width: 40px;
   border-radius: 4px;

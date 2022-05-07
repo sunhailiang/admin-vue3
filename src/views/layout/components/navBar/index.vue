@@ -54,6 +54,10 @@ const logout = () => {
 </script>
 
 <style lang="scss" scoped>
+.el-avatar {
+  font-size: 40px !important;
+}
+
 .navbar {
   height: 50px;
   overflow: hidden;

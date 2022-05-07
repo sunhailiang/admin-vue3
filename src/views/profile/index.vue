@@ -15,6 +15,8 @@
 
 <script setup>
 import {} from 'vue'
+import { cloneDeep } from 'lodash'
+console.log('有没有?', cloneDeep)
 </script>
 
 <style lang="scss" scoped></style>

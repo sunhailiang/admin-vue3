@@ -1,9 +1,9 @@
 <template>
   <div v-bind="$attrs">
     <el-dropdown trigger="click" @command="selectTheme">
-      <div style="font-size: 26px">
+      <div class="icon-size">
         <el-tooltip :content="$t('msg.navBar.themeChange')">
-          <Icon :icon="'theme'" />
+          <Icon :icon="'pifu'" />
         </el-tooltip>
       </div>
       <template #dropdown>
@@ -28,5 +28,8 @@ const selectTheme = (command) => {
 .item {
   padding: 10px;
   cursor: pointer;
+}
+.icon-size {
+  font-size: 26px;
 }
 </style>

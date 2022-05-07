@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import 'lib-flexible-computer'
 import App from './App.vue'
 import { i18n } from './utils/i18n/index'
 import router from './router'

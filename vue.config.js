@@ -17,6 +17,17 @@ console.log(
 )
 module.exports = {
   productionSourceMap: false,
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 192 // 设计稿宽度/10（pc:1920/10）
+          })
+        ]
+      }
+    }
+  },
   chainWebpack: (config) => {
     if (prod) {
       config.plugin('loadshReplace').use(new LodashModuleReplacementPlugin())

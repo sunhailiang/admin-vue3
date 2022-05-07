@@ -18,7 +18,6 @@
         <div class="avatar-wrapper">
           <el-avatar
             shape="square"
-            :size="40"
             :src="$store.getters.userInfo.avatar"
           ></el-avatar>
           <Icon icon="s-tools" />
@@ -104,6 +103,9 @@ const logout = () => {
     .header-guide {
       font-size: 22px;
       top: 8px;
+    }
+    .theme-container {
+      top: 16px;
     }
     .theme-container,
     .header-guide {

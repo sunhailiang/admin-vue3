@@ -4,20 +4,20 @@
     v-if="isExtermal"
     :style="styleExternalIcon"
     class="svg-icon external-icon"
-    @click.prevent.stop="tabIcon"
-  >
-    icon
-  </div>
-  <!-- 内部icon -->
-  <svg
-    v-else
-    class="svg-icon"
     :class="className"
-    aria-hidden="true"
-    @click="tabIcon"
-  >
-    <use :xlink:href="iconName" />
-  </svg>
+    @click.prevent.stop="tabIcon"
+  ></div>
+  <!-- 内部icon -->
+  <i v-else>
+    <svg
+      class="svg-icon"
+      :class="className"
+      aria-hidden="true"
+      @click="tabIcon"
+    >
+      <use :xlink:href="iconName" />
+    </svg>
+  </i>
 </template>
 <script setup>
 // 注册本地的svg

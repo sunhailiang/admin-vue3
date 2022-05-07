@@ -339,6 +339,33 @@ v-leave=>v-leave-from
 19. 全局模糊检索 fuse.js
 20. 多标签页（tagsView）/右键菜单 contextMenu
 21. 页面应用导航 Guide/driver.js
+22. 分辨率是配
+
+```js
+npm i lib-flexible-computer -S //根节点会根据页面视口变化而变化font-size大小
+npm i px2rem-loader -D//自动将px转换为rem
+npm i postcss-px2rem//将代码中px自动转化成对应的rem的一个插件
+// main.js
+import "lib-flexible-computer";
+// vue.config.js
+module.exports = {
+ publicPath: "./",
+ outputDir: "dist",
+ lintOnSave: true,
+ css: {
+  loaderOptions: {
+   css: {},
+   postcss: {
+    plugins: [
+     require("postcss-px2rem")({
+      remUnit: 192///设计图宽度/10
+     })
+    ]
+   }
+  }
+ }
+}
+```
 
 ## vue3
 

@@ -57,4 +57,3 @@ service.interceptors.response.use(
   }
 )
 export default service
-// https://api.imooc-admin.lgdsunday.club/api

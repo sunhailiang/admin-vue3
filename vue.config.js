@@ -29,11 +29,10 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
-    if (prod) {
-      config.plugin('loadshReplace').use(new LodashModuleReplacementPlugin())
-      // 默认开启了prefetch，此时会预取操作，去掉后，只有用到了才会加载
-      config.plugins.delete('prefetch')
-    }
+    // 默认开启了prefetch，此时会预取操作，去掉后，只有用到了才会加载
+    config.plugins.delete('prefetch')
+
+    config.plugin('loadshReplace').use(new LodashModuleReplacementPlugin())
     config.module.rule('svg').exclude.add(resolve('src/assets/icons/svg')).end()
     config.module
       .rule('icons')

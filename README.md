@@ -253,6 +253,15 @@ module.exports = {
 4. 执行`npm run prepare` 命令，通过 husky 安装 git hooks
 5. 添加 `commitlint`hook 到 husky 中，并添加指令：在 commit-msg 的 git hooks 中执行 `npx --no-install commitlint --edit "$1"`
    - 命令：`npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'`
+   - 结果：.husky/commit-msg
+
+```js
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+npx --no-install commitlint --edit "$1"
+
+```
+
 6. 执行`git commit` 发现出错了吧，ok，校验规则完成
 
 ## 代码提交前校验
@@ -271,6 +280,9 @@ module.exports = {
   1. package.json 把原有 lint-staged 改成如下
 
 ```js
+ "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "lint-staged": {
     "src/**/*.{js,vue}": [
       "eslint --fix",
@@ -288,7 +300,11 @@ module.exports = {
 - 在 husky 中修改指令.husky/pre-commit
 
 ```js
-;`npx lint-staged`
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
+
 ```
 
 ## 关于 vue3 template 的多根性

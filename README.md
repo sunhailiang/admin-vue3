@@ -248,7 +248,7 @@ module.exports = {
 ### husky
 
 1. 安装 pnpm i husky@7.0.1 --save-dev
-2. 创建 husky 文件夹
+2. 创建 husky 文件夹,执行命令：`npx husky install`
 3. 在 package.json 中写入`prepare`指令：`npm set-script prepare "husky install"`
 4. 执行`npm run prepare` 命令，通过 husky 安装 git hooks
 5. 添加 `commitlint`hook 到 husky 中，并添加指令：在 commit-msg 的 git hooks 中执行 `npx --no-install commitlint --edit "$1"`
@@ -258,7 +258,7 @@ module.exports = {
 ```js
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-npx --no-install commitlint --edit "$1"
+npx --no-install commitlint --edit $1
 
 ```
 

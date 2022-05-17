@@ -29,7 +29,7 @@ vue3 版本通用管理系统脚手架
 
 - 使用 script setup 语法低版本不支持，所以要最新版本
 
-1. npm i vue@3.2.8 vue-router@4.0.11 vuex@4.0.2
+1. pnpm i vue@3.2.8 vue-router@4.0.11 vuex@4.0.2
 
 ## 本地代码校验
 
@@ -65,6 +65,8 @@ vue3 版本通用管理系统脚手架
 
 1. 在.eslintrc.js 中 rutes
 2. 上面这个报错信息最后一列就是 rutes 中的 key，至于 value，根据实际情况去修改（error/warn/off）
+
+- 具体配置
 
 ### 本地校验-Prettier
 

@@ -3,8 +3,6 @@
     <hamburg />
     <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
-      <!-- 应用导航 -->
-      <Guide class="header-guide" />
       <!-- 全局搜索 -->
       <HeaderSearch class="header-search" />
       <!-- 全屏 -->

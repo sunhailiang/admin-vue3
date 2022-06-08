@@ -16,7 +16,7 @@
 <script setup>
 import {} from 'vue'
 import { cloneDeep } from 'lodash'
-console.log('有没有?', cloneDeep)
+console.log('单独引入?', cloneDeep)
 </script>
 
 <style lang="scss" scoped></style>
